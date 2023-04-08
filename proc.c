@@ -372,6 +372,7 @@ scheduler(void)
   struct proc *p;
   struct cpu *c = mycpu();
   c->proc = 0;
+  // I tried this with 0xFFFFFFFF, but that did not work for some reason, so I chose another high number in hex
   int lowestPriority = 0x77777777;
   
   for(;;){
