@@ -170,6 +170,18 @@ SYSCALL(ps)
   d3:	c3                   	ret    
 
 000000d4 <nice>:
+SYSCALL(nice)
   d4:	b8 1b 00 00 00       	mov    $0x1b,%eax
   d9:	cd 40                	int    $0x40
   db:	c3                   	ret    
+
+000000dc <flock>:
+SYSCALL(flock)
+  dc:	b8 19 00 00 00       	mov    $0x19,%eax
+  e1:	cd 40                	int    $0x40
+  e3:	c3                   	ret    
+
+000000e4 <funlock>:
+  e4:	b8 1a 00 00 00       	mov    $0x1a,%eax
+  e9:	cd 40                	int    $0x40
+  eb:	c3                   	ret    

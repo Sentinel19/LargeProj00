@@ -107,6 +107,8 @@ extern int sys_yield(void);
 extern int sys_shutdown(void);
 extern int sys_ps(void);
 extern int sys_nice(void);
+extern int sys_flock(void);
+extern int sys_funlock(void);
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -134,6 +136,8 @@ static int (*syscalls[])(void) = {
 [SYS_shutdown] sys_shutdown,
 [SYS_ps] sys_ps,
 [SYS_nice] sys_nice,
+[SYS_flock]   sys_flock,
+[SYS_funlock] sys_funlock,
 };
 
 void

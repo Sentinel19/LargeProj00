@@ -195,6 +195,8 @@ UPROGS=\
 	_ps\
 	_longRunner\
 	_nice\
+	_testflock\
+	_priorInv\
 
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)

@@ -1,5 +1,5 @@
 00000000 .text
-000001aa .rodata
+000001ba .rodata
 00000000 .debug_info
 00000000 .debug_abbrev
 00000000 .debug_loc
@@ -21,8 +21,10 @@
 0000015a chdir
 00000122 exec
 000000f2 wait
+000001aa flock
 00000102 read
 0000013a unlink
+000001b2 funlock
 000000e2 fork
 00000172 sbrk
 00000182 uptime

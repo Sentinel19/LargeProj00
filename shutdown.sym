@@ -18,8 +18,10 @@
 0000008c chdir
 00000054 exec
 00000024 wait
+000000dc flock
 00000034 read
 0000006c unlink
+000000e4 funlock
 00000014 fork
 000000a4 sbrk
 000000b4 uptime

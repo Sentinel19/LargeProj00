@@ -183,6 +183,18 @@ SYSCALL(ps)
   f1:	c3                   	ret    
 
 000000f2 <nice>:
+SYSCALL(nice)
   f2:	b8 1b 00 00 00       	mov    $0x1b,%eax
   f7:	cd 40                	int    $0x40
   f9:	c3                   	ret    
+
+000000fa <flock>:
+SYSCALL(flock)
+  fa:	b8 19 00 00 00       	mov    $0x19,%eax
+  ff:	cd 40                	int    $0x40
+ 101:	c3                   	ret    
+
+00000102 <funlock>:
+ 102:	b8 1a 00 00 00       	mov    $0x1a,%eax
+ 107:	cd 40                	int    $0x40
+ 109:	c3                   	ret    

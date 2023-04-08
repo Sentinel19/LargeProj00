@@ -44,7 +44,7 @@ forktest(void)
   int n, pid;
 
   printf(1, "fork test\n");
-  34:	68 74 03 00 00       	push   $0x374
+  34:	68 84 03 00 00       	push   $0x384
   39:	6a 01                	push   $0x1
   3b:	e8 c0 ff ff ff       	call   0 <printf>
 
@@ -88,14 +88,14 @@ forktest(void)
     printf(1, "fork claimed to work N times!\n", N);
   7f:	83 ec 04             	sub    $0x4,%esp
   82:	68 e8 03 00 00       	push   $0x3e8
-  87:	68 b4 03 00 00       	push   $0x3b4
+  87:	68 c4 03 00 00       	push   $0x3c4
   8c:	6a 01                	push   $0x1
   8e:	e8 6d ff ff ff       	call   0 <printf>
     exit();
   93:	e8 1a 02 00 00       	call   2b2 <exit>
       printf(1, "wait stopped early\n");
   98:	83 ec 08             	sub    $0x8,%esp
-  9b:	68 7f 03 00 00       	push   $0x37f
+  9b:	68 8f 03 00 00       	push   $0x38f
   a0:	6a 01                	push   $0x1
   a2:	e8 59 ff ff ff       	call   0 <printf>
       exit();
@@ -113,7 +113,7 @@ forktest(void)
 
   printf(1, "fork test OK\n");
   b6:	83 ec 08             	sub    $0x8,%esp
-  b9:	68 a6 03 00 00       	push   $0x3a6
+  b9:	68 b6 03 00 00       	push   $0x3b6
   be:	6a 01                	push   $0x1
   c0:	e8 3b ff ff ff       	call   0 <printf>
 }
@@ -123,7 +123,7 @@ forktest(void)
   cc:	c3                   	ret    
     printf(1, "wait got too many\n");
   cd:	83 ec 08             	sub    $0x8,%esp
-  d0:	68 93 03 00 00       	push   $0x393
+  d0:	68 a3 03 00 00       	push   $0x3a3
   d5:	6a 01                	push   $0x1
   d7:	e8 24 ff ff ff       	call   0 <printf>
     exit();
@@ -614,6 +614,18 @@ SYSCALL(ps)
  369:	c3                   	ret    
 
 0000036a <nice>:
+SYSCALL(nice)
  36a:	b8 1b 00 00 00       	mov    $0x1b,%eax
  36f:	cd 40                	int    $0x40
  371:	c3                   	ret    
+
+00000372 <flock>:
+SYSCALL(flock)
+ 372:	b8 19 00 00 00       	mov    $0x19,%eax
+ 377:	cd 40                	int    $0x40
+ 379:	c3                   	ret    
+
+0000037a <funlock>:
+ 37a:	b8 1a 00 00 00       	mov    $0x1a,%eax
+ 37f:	cd 40                	int    $0x40
+ 381:	c3                   	ret    

@@ -36,7 +36,7 @@ int main(int argc, const char *argv[]) {
         write(2, "Usage: <path>\n", 14);
   31:	83 ec 04             	sub    $0x4,%esp
   34:	6a 0e                	push   $0xe
-  36:	68 aa 01 00 00       	push   $0x1aa
+  36:	68 ba 01 00 00       	push   $0x1ba
   3b:	6a 02                	push   $0x2
   3d:	e8 c8 00 00 00       	call   10a <write>
   42:	83 c4 10             	add    $0x10,%esp
@@ -58,7 +58,7 @@ int main(int argc, const char *argv[]) {
                 write(2, "Error Opening to file:\n", 23);
   56:	83 ec 04             	sub    $0x4,%esp
   59:	6a 17                	push   $0x17
-  5b:	68 b9 01 00 00       	push   $0x1b9
+  5b:	68 c9 01 00 00       	push   $0x1c9
   60:	6a 02                	push   $0x2
   62:	e8 a3 00 00 00       	call   10a <write>
   67:	83 c4 10             	add    $0x10,%esp
@@ -111,7 +111,7 @@ int main(int argc, const char *argv[]) {
                     write(2, "Error: Writing to file:\n", 25);
   cc:	83 ec 04             	sub    $0x4,%esp
   cf:	6a 19                	push   $0x19
-  d1:	68 d1 01 00 00       	push   $0x1d1
+  d1:	68 e1 01 00 00       	push   $0x1e1
   d6:	6a 02                	push   $0x2
   d8:	e8 2d 00 00 00       	call   10a <write>
   dd:	83 c4 10             	add    $0x10,%esp
@@ -267,6 +267,18 @@ SYSCALL(ps)
  1a1:	c3                   	ret    
 
 000001a2 <nice>:
+SYSCALL(nice)
  1a2:	b8 1b 00 00 00       	mov    $0x1b,%eax
  1a7:	cd 40                	int    $0x40
  1a9:	c3                   	ret    
+
+000001aa <flock>:
+SYSCALL(flock)
+ 1aa:	b8 19 00 00 00       	mov    $0x19,%eax
+ 1af:	cd 40                	int    $0x40
+ 1b1:	c3                   	ret    
+
+000001b2 <funlock>:
+ 1b2:	b8 1a 00 00 00       	mov    $0x1a,%eax
+ 1b7:	cd 40                	int    $0x40
+ 1b9:	c3                   	ret    

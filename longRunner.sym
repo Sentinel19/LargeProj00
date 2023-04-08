@@ -1,5 +1,5 @@
 00000000 .text
-00000134 .bss
+00000144 .bss
 00000000 .debug_info
 00000000 .debug_abbrev
 00000000 .debug_loc
@@ -9,7 +9,7 @@
 00000000 .debug_str
 00000000 .comment
 00000000 longRunner.c
-00000134 counter
+00000144 counter
 00000113 yield
 000000bb mknod
 00000123 ps
@@ -23,8 +23,10 @@
 000000e3 chdir
 000000ab exec
 0000007b wait
+00000133 flock
 0000008b read
 000000c3 unlink
+0000013b funlock
 0000006b fork
 000000fb sbrk
 0000010b uptime

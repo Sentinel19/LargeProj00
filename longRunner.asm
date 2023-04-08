@@ -22,9 +22,9 @@ int loop(int n)
   10:	eb 17                	jmp    29 <loop+0x29>
         for(int j = n * 4096; j > 0; --j) {
             counter += 1;
-  12:	a1 34 01 00 00       	mov    0x134,%eax
+  12:	a1 44 01 00 00       	mov    0x144,%eax
   17:	83 c0 01             	add    $0x1,%eax
-  1a:	a3 34 01 00 00       	mov    %eax,0x134
+  1a:	a3 44 01 00 00       	mov    %eax,0x144
         for(int j = n * 4096; j > 0; --j) {
   1f:	83 ea 01             	sub    $0x1,%edx
   22:	85 d2                	test   %edx,%edx
@@ -39,7 +39,7 @@ int loop(int n)
         }
     }
     return counter;
-  31:	a1 34 01 00 00       	mov    0x134,%eax
+  31:	a1 44 01 00 00       	mov    0x144,%eax
 }
   36:	5b                   	pop    %ebx
   37:	5d                   	pop    %ebp
@@ -224,6 +224,18 @@ SYSCALL(ps)
  12a:	c3                   	ret    
 
 0000012b <nice>:
+SYSCALL(nice)
  12b:	b8 1b 00 00 00       	mov    $0x1b,%eax
  130:	cd 40                	int    $0x40
  132:	c3                   	ret    
+
+00000133 <flock>:
+SYSCALL(flock)
+ 133:	b8 19 00 00 00       	mov    $0x19,%eax
+ 138:	cd 40                	int    $0x40
+ 13a:	c3                   	ret    
+
+0000013b <funlock>:
+ 13b:	b8 1a 00 00 00       	mov    $0x1a,%eax
+ 140:	cd 40                	int    $0x40
+ 142:	c3                   	ret    
