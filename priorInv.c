@@ -9,9 +9,9 @@ int fd = 1;
 
 void runHP()
 {
-    printf(1, "Starting High Priority\n");
+    printf(1, "Starting High Priority Process\n");
     sleep(500);
-    printf(1, "High got lock %d\n", fd);
+    printf(1, "High Priority Process obtained lock %d\n", fd);
     funlock(fd);   
     exit();
 }
@@ -41,7 +41,7 @@ int main(int argc, const char *argv[])
 {
     // aquire lock
     flock(fd);
-    printf(1, "Low got lock %d\n", fd);
+    printf(1, "Low Priority Process got the lock %d\n", fd);
 
     // start child processes
     startHP();
@@ -53,22 +53,23 @@ int main(int argc, const char *argv[])
     // lower priority process running
     while (counter > 0)
     {
-        printf(1, "...Low priority running...\n");
+        printf(1, "Low priority running...\n");
         sleep(50);
         counter -= 1;
     }
-    printf(1, "Low releasing lock %d\n", fd);
+    printf(1, "Low Priority releases the lock %d\n", fd);
     funlock(fd);
 
     // wait on the child processes as to not create zombies
     int pidOne = wait();
     int pidTwo = wait();
-    printf(1, "%d exited\n", pidOne);
-    printf(1, "%d exited\n", pidTwo);
-
+    printf(1, "\n%d Processes complete!\n", pidOne);
+    printf(1, "\n%d Processes complete!\n", pidTwo);
+     printf(1, "\nPriority Inversion Demonstrated\n");
     // wait before exit just to be safe
     wait();
     exit();
+   
     return 0;
 
 }
